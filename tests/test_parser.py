@@ -12,7 +12,7 @@ class TestParserValidate(TestCase):
     def test_parse_hl7_message(self):
         h = parser.parse_hl7_message(message1)
         assert h is not None
-        assert len(h) == 8
+        assert len(h) == 7
 
     def test_update_description(self):
         h = parser.parse_hl7_message(message1)
@@ -28,25 +28,24 @@ class TestParserValidate(TestCase):
         new_message = parser.update_description(0, h)
         data = parser.hl7_message_to_dict(new_message)
         assert data is not None
-        print(json.dumps(data, indent=4))
-        assert data['info']['message_type'] == 'ADT_A01'
-        assert data['info']['message_description'] == 'Admit/Visit Notification'
+        # print(json.dumps(data, indent=4))
+        assert data['info']['messageType'] == 'ADT_A01'
+        assert data['info']['messageDescription'] == 'Admit/Visit Notification'
 
-        assert data['segments'][0]['type'] == 'MSH'
-        assert data['segments'][0]['description'] == 'Message Header'
+        assert 'messageHeader' in data['segments']
 
-        msh_fields = data['segments'][0]['fields']
-        assert msh_fields[0]['id'] == 1
-        assert msh_fields[0]['description'] == 'Field Separator'
-        assert msh_fields[0]['data'] == '|'
+        msh_fields = data['segments']['messageHeader']
+        assert 'fieldSeparator' in msh_fields
+        assert msh_fields['fieldSeparator']['id'] == 1
+        assert msh_fields['fieldSeparator']['data'] == '|'
 
-        message_type_repetitions = msh_fields[7]['repetitions']
-        assert message_type_repetitions[0]['data'] == 'ADT^A01^ADT_A01'
-        assert message_type_repetitions[0]['description'] == 'Message Type'
+        assert 'messageType' in msh_fields
+        assert msh_fields['messageType']['messageCode']['data'] == 'ADT'
 
         h = parser.parse_hl7_message(message2)
         new_message = parser.update_description(0, h)
         data = parser.hl7_message_to_dict(new_message)
+        # print(json.dumps(data, indent=4))
         assert data is not None
 
     def test_parser(self):

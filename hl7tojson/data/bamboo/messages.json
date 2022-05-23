@@ -1,0 +1,2335 @@
+{
+    "ADT_A01": {
+        "desc": "Admit/Visit Notification",
+        "name": "ADT_A01",
+        "segments": {
+          "desc": "Admit/Visit Notification",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PDA",
+              "desc": "Patient Death and Autopsy",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A02": {
+        "desc": "Transfer a Patient",
+        "name": "ADT_A02",
+        "segments": {
+          "desc": "Transfer a Patient",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PDA",
+              "desc": "Patient Death and Autopsy",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A03": {
+        "desc": "Discharge/End Visit",
+        "name": "ADT_A03",
+        "segments": {
+          "desc": "Discharge/End Visit",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PDA",
+              "desc": "Patient Death and Autopsy",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A04": {
+        "desc": "Register a Patient",
+        "name": "ADT_A04",
+        "segments": {
+          "desc": "Register a Patient",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PDA",
+              "desc": "Patient Death and Autopsy",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A05": {
+        "desc": "Pre-Admit a Patient",
+        "name": "ADT_A05",
+        "segments": {
+          "desc": "Pre-Admit a Patient",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A06": {
+        "desc": "Change an Outpatient to an Inpatient",
+        "name": "ADT_A06",
+        "segments": {
+          "desc": "Change an Outpatient to an Inpatient",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "MRG",
+              "desc": "Merge Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A07": {
+        "desc": "Change an Inpatient to an Outpatient",
+        "name": "ADT_A07",
+        "segments": {
+          "desc": "Change an Inpatient to an Outpatient",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "MRG",
+              "desc": "Merge Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A08": {
+        "desc": "Update Patient Information",
+        "name": "ADT_A08",
+        "segments": {
+          "desc": "Update Patient Information",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PDA",
+              "desc": "Patient Death and Autopsy",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A11": {
+        "desc": "Cancel Admit / Visit Notification",
+        "name": "ADT_A11",
+        "segments": {
+          "desc": "Cancel Admit / Visit Notification",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A12": {
+        "desc": "Cancel Transfer",
+        "name": "ADT_A12",
+        "segments": {
+          "desc": "Cancel Transfer",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A13": {
+        "desc": "Cancel Discharge",
+        "name": "ADT_A13",
+        "segments": {
+          "desc": "Cancel Discharge",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "NK1",
+              "desc": "Next of Kin / Associated Parties",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ARV",
+              "desc": "Access Restrictions",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ROL",
+              "desc": "Role",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "AL1",
+              "desc": "Allergy Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DG1",
+              "desc": "Diagnosis Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "DRG",
+              "desc": "Diagnosis Related Group",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PROCEDURE",
+              "desc": "Procedure",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "PR1",
+                  "desc": "Procedures",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "GT1",
+              "desc": "Guarantor",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
+              "name": "ACC",
+              "desc": "Accident Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB1",
+              "desc": "Universal Bill Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "UB2",
+              "desc": "Universal Bill 92 Information",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PDA",
+              "desc": "Patient Death and Autopsy",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A21": {
+        "desc": "Patient Goes on a Leave of Absence",
+        "name": "ADT_A21",
+        "segments": {
+          "desc": "Patient Goes on a Leave of Absence",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A22": {
+        "desc": "Patient Returns From a Leave of Absence",
+        "name": "ADT_A22",
+        "segments": {
+          "desc": "Patient Returns From a Leave of Absence",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "DB1",
+              "desc": "Disability Information",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "OBX",
+              "desc": "Observation/Result",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A52": {
+        "desc": "Cancel Leave of Absence for a Patient",
+        "name": "ADT_A52",
+        "segments": {
+          "desc": "Cancel Leave of Absence for a Patient",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      },
+      "ADT_A53": {
+        "desc": "Cancel Patient Returns from a Leave of Absence",
+        "name": "ADT_A53",
+        "segments": {
+          "desc": "Cancel Patient Returns from a Leave of Absence",
+          "segments": [
+            {
+              "name": "MSH",
+              "desc": "Message Header",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "SFT",
+              "desc": "Software Segment",
+              "min": 0,
+              "max": 0
+            },
+            {
+              "name": "UAC",
+              "desc": "User Authentication Credential",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "EVN",
+              "desc": "Event Type",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PID",
+              "desc": "Patient Identification",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PD1",
+              "desc": "Additional Demographics",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "PV1",
+              "desc": "Patient Visit",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "name": "PV2",
+              "desc": "Patient Visit - Additional Info.",
+              "min": 0,
+              "max": 1
+            },
+            {
+              "name": "ZPP",
+              "desc": "Custom Free Text",
+              "min": 0,
+              "max": 100
+            },
+            {
+              "name": "ZFA",
+              "desc": "Sending Facility Data",
+              "min": 0,
+              "max": 6
+            },
+            {
+              "name": "ZMD",
+              "desc": "Patient Ping Internal",
+              "min": 0,
+              "max": 1
+            }
+          ]
+        }
+      }
+}
