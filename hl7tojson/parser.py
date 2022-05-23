@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime, timezone, timedelta
+import json
 import textwrap
 from os.path import dirname
 
@@ -6,19 +8,16 @@ import hl7
 
 fields = segments = messages = None
 
-HL7_VERSION = '27'
 FILE_PATH = dirname(__file__)
 
-import pickle
+with open('{}/data/bamboo/fields.json'.format(FILE_PATH), "r") as f:
+    fields = json.loads(f.read())
 
-with open('{}/data/{}/fields.pickle'.format(FILE_PATH, HL7_VERSION), "rb") as f:
-    fields = pickle.load(f)
+with open('{}/data/bamboo/messages.json'.format(FILE_PATH), "r") as f:
+    messages = json.loads(f.read())
 
-with open('{}/data/{}/messages.pickle'.format(FILE_PATH, HL7_VERSION), "rb") as f:
-    messages = pickle.load(f)
-
-with open('{}/data/{}/segments.pickle'.format(FILE_PATH, HL7_VERSION), "rb") as f:
-    segments = pickle.load(f)
+with open('{}/data/bamboo/segments.json'.format(FILE_PATH), "r") as f:
+    segments = json.loads(f.read())
 
 
 def parse(message):
@@ -42,13 +41,16 @@ def parse_hl7_message(message):
 def validate_segments(message):
     """Check if a parsed message containing legal segments"""
 
-    if not isinstance(message, hl7.Message):
+    if not isinstance(message, hl7.containers.Message):
         raise Exception('The message should be an instance of hl7.Message')
 
     message_type = '{}_{}'.format(message[0][9][0][0], message[0][9][0][1])
+    possible_segments = messages[str(message_type)]['segments']['segments']
+    for segment in possible_segments:
+        if 'children' in segment:
+            possible_segments.extend(segment['children'])
     allow_segments = [
-        segment['name']
-        for segment in messages[str(message_type)]['segments']['segments']
+        segment['name'] for segment in possible_segments
     ]
     actual_segments = [str(segment[0]) for segment in message]
     return set(actual_segments) < set(allow_segments)
@@ -103,26 +105,28 @@ def hl7_message_to_dict(message):
 
 def _get_message_info(message):
     return {
-        'message_version': HL7_VERSION,
-        'message_type': message.name,
-        'message_description': message.desc,
+        'messageType': message.name,
+        'messageDescription': message.desc,
     }
 
 
 def _get_segments_data(message):
-    segments_data = []
+    segments_data = {}
     for segment in message:
-        segment_dict = {
-            'type': segment[0][0],
-            'description': segment.desc,
-            'fields': _get_fields_data(segment)
-        }
-        segments_data.append(segment_dict)
+        fields = _get_fields_data(segment)
+        desc_key = segment.desc.split()[0].lower() + ''.join(x.capitalize() for x in segment.desc.split()[1:])
+        # Combine multiple ZPP segments
+        if desc_key in segments_data:
+            for key in fields:
+                if key != 'description':
+                    segments_data[desc_key][key]['data'] += f"{fields[key]['data']}"
+        else:
+            segments_data[desc_key] = fields
     return segments_data
 
 
 def _get_fields_data(segment):
-    fields_data = []
+    fields_data = {}
     for idx, field in enumerate(segment):
         if idx == 0:
             continue
@@ -130,28 +134,38 @@ def _get_fields_data(segment):
         if not str(field):
             continue
 
-        field_dict = {
+        description = field.desc.split()[0].lower() + ''.join(x.capitalize() for x in field.desc.split()[1:])
+        data = str(field)            
+        if description in ["recordedDate/time", "admitDate/time", "date/timeOfMessage"]:
+            data = datetime.strptime(data, "%Y%m%d%H%M%S").replace(tzinfo=timezone(-timedelta(hours=5))).isoformat()
+        elif description in ["date/timeOfBirth"]:
+            data = datetime.strptime(data, "%Y%m%d").date().isoformat()
+        fields_data[description] = {
             'id': idx,
-            'description': field.desc,
-            'data': str(field),
-            'repetitions': _get_repetitions_data(field)
+            'data': data,
         }
-        fields_data.append(field_dict)
+        repetitions = _get_repetitions_data(field)
+        if repetitions:
+            fields_data[description].update(repetitions)
+            fields_data[description].pop('data', None)
     return fields_data
 
 
 def _get_repetitions_data(field):
-    repetitions_data = []
+    repetitions_data = {}
     if not isinstance(field[0], hl7.Repetition):
         return repetitions_data
 
-    for idx, repetition in enumerate(field):
-        repetition_dict = {
-            'description': repetition.desc,
-            'data': str(repetition),
-            'components': _get_components_data(repetition)
+    # Move components to top level within field
+    # Set descriptions to camelCase
+    for repetition in field:
+        components = _get_components_data(repetition)
+    for component in components:
+        desc_key = component['description'].split()[0].lower() + ''.join(x.capitalize() for x in component['description'].split()[1:])
+        repetitions_data[desc_key] = {
+            'id': component['id'],
+            'data': component['data']
         }
-        repetitions_data.append(repetition_dict)
     return repetitions_data
 
 
