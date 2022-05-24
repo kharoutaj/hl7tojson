@@ -25,7 +25,6 @@ message = '\r'.join([
     'PV1||I|W^389^1^UABH^^^^3||||12345^MORGAN^REX^J^^^MD^0010^UAMC^L||67890^GRAINGER^LUCY^X^^^MD^0010^UAMC^L|MED'
     '|||||A0||13579^POTTER^SHERMAN^T^^^MD^0010^UAMC^L|||||||||||||||||||||||||||200605290900',
     'OBX|1|NM|^Body Height||1.80|m^Meter^ISO+|||||F',
-    'OBX|2|NM|^Body Weight||79|kg^Kilogram^ISO+|||||F',
     'AL1|1||^ASPIRIN',
     'DG1|1||786.50^CHEST PAIN, UNSPECIFIED^I9|||A'
 ])
@@ -36,793 +35,407 @@ parser.parse(message)
 ```json
 {
     "info": {
-        "message_version": "27", 
-        "message_type": "ADT_A01", 
-        "message_description": "Admit/Visit Notification"
-    }, 
-    "segments": [
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "|", 
-                    "id": 1, 
-                    "description": "Field Separator"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "^~\\&", 
-                    "id": 2, 
-                    "description": "Encoding Characters"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "MegaReg", 
-                    "id": 3, 
-                    "description": "Sending Application"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "XYZHospC", 
-                    "id": 4, 
-                    "description": "Sending Facility"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "SuperOE", 
-                    "id": 5, 
-                    "description": "Receiving Application"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "XYZImgCtr", 
-                    "id": 6, 
-                    "description": "Receiving Facility"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "20060529090131-0500", 
-                    "id": 7, 
-                    "description": "Date/Time of Message"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "ADT^A01^ADT_A01", 
-                            "description": "Message Type", 
-                            "components": [
-                                {
-                                    "data": "ADT", 
-                                    "id": 1, 
-                                    "description": "Message Code"
-                                }, 
-                                {
-                                    "data": "A01", 
-                                    "id": 2, 
-                                    "description": "Trigger Event"
-                                }, 
-                                {
-                                    "data": "ADT_A01", 
-                                    "id": 3, 
-                                    "description": "Message Structure"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "ADT^A01^ADT_A01", 
-                    "id": 9, 
-                    "description": "Message Type"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "01052901", 
-                    "id": 10, 
-                    "description": "Message Control ID"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "P", 
-                    "id": 11, 
-                    "description": "Processing ID"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "2.5", 
-                    "id": 12, 
-                    "description": "Version ID"
+        "messageType": "ADT_A01",
+        "messageDescription": "Admit/Visit Notification"
+    },
+    "segments": {
+        "messageHeader": {
+            "fieldSeparator": {
+                "id": 1,
+                "data": "|"
+            },
+            "encodingCharacters": {
+                "id": 2,
+                "data": "^~\\&"
+            },
+            "sendingApplication": {
+                "id": 3,
+                "data": "MegaReg"
+            },
+            "sendingFacility": {
+                "id": 4,
+                "data": "XYZHospC"
+            },
+            "receivingApplication": {
+                "id": 5,
+                "data": "SuperOE"
+            },
+            "receivingFacility": {
+                "id": 6,
+                "data": "XYZImgCtr"
+            },
+            "date/timeOfMessage": {
+                "id": 7,
+                "data": "2006-05-29T09:01:31-05:00"
+            },
+            "messageType": {
+                "id": 9,
+                "messageCode": {
+                    "id": 1,
+                    "data": "ADT"
+                },
+                "triggerEvent": {
+                    "id": 2,
+                    "data": "A01"
+                },
+                "messageStructure": {
+                    "id": 3,
+                    "data": "ADT_A01"
                 }
-            ], 
-            "type": "MSH", 
-            "description": "Message Header"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "200605290901", 
-                    "id": 2, 
-                    "description": "Recorded Date/Time "
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "200605290900", 
-                    "id": 6, 
-                    "description": "Event Occurred"
+            },
+            "messageControlId": {
+                "id": 10,
+                "data": "01052901"
+            },
+            "processingId": {
+                "id": 11,
+                "data": "P"
+            },
+            "versionId": {
+                "id": 12,
+                "data": "2.5"
+            }
+        },
+        "eventType": {
+            "recordedDate/time": {
+                "id": 2,
+                "data": "2006-05-29T09:01:00-05:00"
+            },
+            "eventOccurred": {
+                "id": 6,
+                "data": "20060529090000"
+            }
+        },
+        "patientIdentification": {
+            "patientIdentifierList": {
+                "id": 3,
+                "idNumber": {
+                    "id": 1,
+                    "data": "56782445"
+                },
+                "assigningAuthority": {
+                    "id": 4,
+                    "data": "UAReg"
+                },
+                "identifierTypeCode": {
+                    "id": 5,
+                    "data": "PI"
                 }
-            ], 
-            "type": "EVN", 
-            "description": "Event Type"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [
-                        {
-                            "data": "56782445^^^UAReg^PI", 
-                            "description": "Patient Identifier List", 
-                            "components": [
-                                {
-                                    "data": "56782445", 
-                                    "id": 1, 
-                                    "description": "ID Number"
-                                }, 
-                                {
-                                    "data": "UAReg", 
-                                    "id": 4, 
-                                    "description": "Assigning Authority"
-                                }, 
-                                {
-                                    "data": "PI", 
-                                    "id": 5, 
-                                    "description": "Identifier Type Code"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "56782445^^^UAReg^PI", 
-                    "id": 3, 
-                    "description": "Patient Identifier List"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "KLEINSAMPLE^BARRY^Q^JR", 
-                            "description": "Patient Name", 
-                            "components": [
-                                {
-                                    "data": "KLEINSAMPLE", 
-                                    "id": 1, 
-                                    "description": "Family Name"
-                                }, 
-                                {
-                                    "data": "BARRY", 
-                                    "id": 2, 
-                                    "description": "Given Name"
-                                }, 
-                                {
-                                    "data": "Q", 
-                                    "id": 3, 
-                                    "description": "Second and Further Given Names or Initials Thereof"
-                                }, 
-                                {
-                                    "data": "JR", 
-                                    "id": 4, 
-                                    "description": "Suffix (e.g., JR or III)"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "KLEINSAMPLE^BARRY^Q^JR", 
-                    "id": 5, 
-                    "description": "Patient Name"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "19620910", 
-                    "id": 7, 
-                    "description": "Date/Time of Birth"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "M", 
-                    "id": 8, 
-                    "description": "Administrative Sex"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "2028-9^^HL70005^RA99113^^XYZ", 
-                            "description": "Race", 
-                            "components": [
-                                {
-                                    "data": "2028-9", 
-                                    "id": 1, 
-                                    "description": "Identifier"
-                                }, 
-                                {
-                                    "data": "HL70005", 
-                                    "id": 3, 
-                                    "description": "Name of Coding System"
-                                }, 
-                                {
-                                    "data": "RA99113", 
-                                    "id": 4, 
-                                    "description": "Alternate Identifier"
-                                }, 
-                                {
-                                    "data": "XYZ", 
-                                    "id": 6, 
-                                    "description": "Name of Alternate Coding System"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "2028-9^^HL70005^RA99113^^XYZ", 
-                    "id": 10, 
-                    "description": "Race"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "260 GOODWIN CREST DRIVE^^BIRMINGHAM^AL^35209^^M", 
-                            "description": "Patient Address", 
-                            "components": [
-                                {
-                                    "data": "260 GOODWIN CREST DRIVE", 
-                                    "id": 1, 
-                                    "description": "Street Address"
-                                }, 
-                                {
-                                    "data": "BIRMINGHAM", 
-                                    "id": 3, 
-                                    "description": "City"
-                                }, 
-                                {
-                                    "data": "AL", 
-                                    "id": 4, 
-                                    "description": "State or Province"
-                                }, 
-                                {
-                                    "data": "35209", 
-                                    "id": 5, 
-                                    "description": "Zip or Postal Code"
-                                }, 
-                                {
-                                    "data": "M", 
-                                    "id": 7, 
-                                    "description": "Address Type"
-                                }
-                            ]
-                        }, 
-                        {
-                            "data": "NICKELL\u2019S PICKLES^10000 W 100TH AVE^BIRMINGHAM^AL^35200^^O", 
-                            "description": "Patient Address", 
-                            "components": [
-                                {
-                                    "data": "NICKELL\u2019S PICKLES", 
-                                    "id": 1, 
-                                    "description": "Street Address"
-                                }, 
-                                {
-                                    "data": "10000 W 100TH AVE", 
-                                    "id": 2, 
-                                    "description": "Other Designation"
-                                }, 
-                                {
-                                    "data": "BIRMINGHAM", 
-                                    "id": 3, 
-                                    "description": "City"
-                                }, 
-                                {
-                                    "data": "AL", 
-                                    "id": 4, 
-                                    "description": "State or Province"
-                                }, 
-                                {
-                                    "data": "35200", 
-                                    "id": 5, 
-                                    "description": "Zip or Postal Code"
-                                }, 
-                                {
-                                    "data": "O", 
-                                    "id": 7, 
-                                    "description": "Address Type"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "260 GOODWIN CREST DRIVE^^BIRMINGHAM^AL^35209^^M~NICKELL\u2019S PICKLES^10000 W 100TH AVE^BIRMINGHAM^AL^35200^^O", 
-                    "id": 11, 
-                    "description": "Patient Address"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "0105I30001^^^99DEF^AN", 
-                            "description": "Patient Account Number", 
-                            "components": [
-                                {
-                                    "data": "0105I30001", 
-                                    "id": 1, 
-                                    "description": "ID Number"
-                                }, 
-                                {
-                                    "data": "99DEF", 
-                                    "id": 4, 
-                                    "description": "Assigning Authority"
-                                }, 
-                                {
-                                    "data": "AN", 
-                                    "id": 5, 
-                                    "description": "Identifier Type Code"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "0105I30001^^^99DEF^AN", 
-                    "id": 18, 
-                    "description": "Patient Account Number"
+            },
+            "patientName": {
+                "id": 5,
+                "familyName": {
+                    "id": 1,
+                    "data": "KLEINSAMPLE"
+                },
+                "givenName": {
+                    "id": 2,
+                    "data": "BARRY"
+                },
+                "secondAndFurtherGivenNamesOrInitialsThereof": {
+                    "id": 3,
+                    "data": "Q"
+                },
+                "suffix(e.g.,JrOrIii)": {
+                    "id": 4,
+                    "data": "JR"
                 }
-            ], 
-            "type": "PID", 
-            "description": "Patient Identification"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "I", 
-                    "id": 2, 
-                    "description": "Patient Class"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "W^389^1^UABH^^^^3", 
-                            "description": "Assigned Patient Location", 
-                            "components": [
-                                {
-                                    "data": "W", 
-                                    "id": 1, 
-                                    "description": "Point of Care"
-                                }, 
-                                {
-                                    "data": "389", 
-                                    "id": 2, 
-                                    "description": "Room"
-                                }, 
-                                {
-                                    "data": "1", 
-                                    "id": 3, 
-                                    "description": "Bed"
-                                }, 
-                                {
-                                    "data": "UABH", 
-                                    "id": 4, 
-                                    "description": "Facility"
-                                }, 
-                                {
-                                    "data": "3", 
-                                    "id": 8, 
-                                    "description": "Floor"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "W^389^1^UABH^^^^3", 
-                    "id": 3, 
-                    "description": "Assigned Patient Location"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "12345^MORGAN^REX^J^^^MD^0010^UAMC^L", 
-                            "description": "Attending Doctor", 
-                            "components": [
-                                {
-                                    "data": "12345", 
-                                    "id": 1, 
-                                    "description": "Person Identifier"
-                                }, 
-                                {
-                                    "data": "MORGAN", 
-                                    "id": 2, 
-                                    "description": "Family Name"
-                                }, 
-                                {
-                                    "data": "REX", 
-                                    "id": 3, 
-                                    "description": "Given Name"
-                                }, 
-                                {
-                                    "data": "J", 
-                                    "id": 4, 
-                                    "description": "Second and Further Given Names or Initials Thereof"
-                                }, 
-                                {
-                                    "data": "MD", 
-                                    "id": 7, 
-                                    "description": "Degree (e.g., MD)"
-                                }, 
-                                {
-                                    "data": "0010", 
-                                    "id": 8, 
-                                    "description": "Source Table"
-                                }, 
-                                {
-                                    "data": "UAMC", 
-                                    "id": 9, 
-                                    "description": "Assigning Authority"
-                                }, 
-                                {
-                                    "data": "L", 
-                                    "id": 10, 
-                                    "description": "Name Type Code"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "12345^MORGAN^REX^J^^^MD^0010^UAMC^L", 
-                    "id": 7, 
-                    "description": "Attending Doctor"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "67890^GRAINGER^LUCY^X^^^MD^0010^UAMC^L", 
-                            "description": "Consulting Doctor", 
-                            "components": [
-                                {
-                                    "data": "67890", 
-                                    "id": 1, 
-                                    "description": "Person Identifier"
-                                }, 
-                                {
-                                    "data": "GRAINGER", 
-                                    "id": 2, 
-                                    "description": "Family Name"
-                                }, 
-                                {
-                                    "data": "LUCY", 
-                                    "id": 3, 
-                                    "description": "Given Name"
-                                }, 
-                                {
-                                    "data": "X", 
-                                    "id": 4, 
-                                    "description": "Second and Further Given Names or Initials Thereof"
-                                }, 
-                                {
-                                    "data": "MD", 
-                                    "id": 7, 
-                                    "description": "Degree (e.g., MD)"
-                                }, 
-                                {
-                                    "data": "0010", 
-                                    "id": 8, 
-                                    "description": "Source Table"
-                                }, 
-                                {
-                                    "data": "UAMC", 
-                                    "id": 9, 
-                                    "description": "Assigning Authority"
-                                }, 
-                                {
-                                    "data": "L", 
-                                    "id": 10, 
-                                    "description": "Name Type Code"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "67890^GRAINGER^LUCY^X^^^MD^0010^UAMC^L", 
-                    "id": 9, 
-                    "description": "Consulting Doctor"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "MED", 
-                    "id": 10, 
-                    "description": "Hospital Service"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "A0", 
-                    "id": 15, 
-                    "description": "Ambulatory Status"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "13579^POTTER^SHERMAN^T^^^MD^0010^UAMC^L", 
-                            "description": "Admitting Doctor", 
-                            "components": [
-                                {
-                                    "data": "13579", 
-                                    "id": 1, 
-                                    "description": "Person Identifier"
-                                }, 
-                                {
-                                    "data": "POTTER", 
-                                    "id": 2, 
-                                    "description": "Family Name"
-                                }, 
-                                {
-                                    "data": "SHERMAN", 
-                                    "id": 3, 
-                                    "description": "Given Name"
-                                }, 
-                                {
-                                    "data": "T", 
-                                    "id": 4, 
-                                    "description": "Second and Further Given Names or Initials Thereof"
-                                }, 
-                                {
-                                    "data": "MD", 
-                                    "id": 7, 
-                                    "description": "Degree (e.g., MD)"
-                                }, 
-                                {
-                                    "data": "0010", 
-                                    "id": 8, 
-                                    "description": "Source Table"
-                                }, 
-                                {
-                                    "data": "UAMC", 
-                                    "id": 9, 
-                                    "description": "Assigning Authority"
-                                }, 
-                                {
-                                    "data": "L", 
-                                    "id": 10, 
-                                    "description": "Name Type Code"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "13579^POTTER^SHERMAN^T^^^MD^0010^UAMC^L", 
-                    "id": 17, 
-                    "description": "Admitting Doctor"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "200605290900", 
-                    "id": 44, 
-                    "description": "Admit Date/Time"
+            },
+            "date/timeOfBirth": {
+                "id": 7,
+                "data": "1962-09-10"
+            },
+            "administrativeSex": {
+                "id": 8,
+                "data": "M"
+            },
+            "race": {
+                "id": 10,
+                "identifier": {
+                    "id": 1,
+                    "data": "2028-9"
+                },
+                "nameOfCodingSystem": {
+                    "id": 3,
+                    "data": "HL70005"
+                },
+                "alternateIdentifier": {
+                    "id": 4,
+                    "data": "RA99113"
+                },
+                "nameOfAlternateCodingSystem": {
+                    "id": 6,
+                    "data": "XYZ"
                 }
-            ], 
-            "type": "PV1", 
-            "description": "Patient Visit"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "1", 
-                    "id": 1, 
-                    "description": "Set ID - OBX"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "NM", 
-                    "id": 2, 
-                    "description": "Value Type"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "^Body Height", 
-                            "description": "Observation Identifier", 
-                            "components": [
-                                {
-                                    "data": "Body Height", 
-                                    "id": 2, 
-                                    "description": "Text"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "^Body Height", 
-                    "id": 3, 
-                    "description": "Observation Identifier"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "1.80", 
-                    "id": 5, 
-                    "description": "Observation Value"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "m^Meter^ISO+", 
-                            "description": "Units", 
-                            "components": [
-                                {
-                                    "data": "m", 
-                                    "id": 1, 
-                                    "description": "Identifier"
-                                }, 
-                                {
-                                    "data": "Meter", 
-                                    "id": 2, 
-                                    "description": "Text"
-                                }, 
-                                {
-                                    "data": "ISO+", 
-                                    "id": 3, 
-                                    "description": "Name of Coding System"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "m^Meter^ISO+", 
-                    "id": 6, 
-                    "description": "Units"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "F", 
-                    "id": 11, 
-                    "description": "Observation Result Status"
+            },
+            "patientAddress": {
+                "id": 11,
+                "streetAddress": {
+                    "id": 1,
+                    "data": "NICKELL\u2019S PICKLES"
+                },
+                "otherDesignation": {
+                    "id": 2,
+                    "data": "10000 W 100TH AVE"
+                },
+                "city": {
+                    "id": 3,
+                    "data": "BIRMINGHAM"
+                },
+                "stateOrProvince": {
+                    "id": 4,
+                    "data": "AL"
+                },
+                "zipOrPostalCode": {
+                    "id": 5,
+                    "data": "35200"
+                },
+                "addressType": {
+                    "id": 7,
+                    "data": "O"
                 }
-            ], 
-            "type": "OBX", 
-            "description": "Observation/Result"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "2", 
-                    "id": 1, 
-                    "description": "Set ID - OBX"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "NM", 
-                    "id": 2, 
-                    "description": "Value Type"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "^Body Weight", 
-                            "description": "Observation Identifier", 
-                            "components": [
-                                {
-                                    "data": "Body Weight", 
-                                    "id": 2, 
-                                    "description": "Text"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "^Body Weight", 
-                    "id": 3, 
-                    "description": "Observation Identifier"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "79", 
-                    "id": 5, 
-                    "description": "Observation Value"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "kg^Kilogram^ISO+", 
-                            "description": "Units", 
-                            "components": [
-                                {
-                                    "data": "kg", 
-                                    "id": 1, 
-                                    "description": "Identifier"
-                                }, 
-                                {
-                                    "data": "Kilogram", 
-                                    "id": 2, 
-                                    "description": "Text"
-                                }, 
-                                {
-                                    "data": "ISO+", 
-                                    "id": 3, 
-                                    "description": "Name of Coding System"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "kg^Kilogram^ISO+", 
-                    "id": 6, 
-                    "description": "Units"
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "F", 
-                    "id": 11, 
-                    "description": "Observation Result Status"
+            },
+            "patientAccountNumber": {
+                "id": 18,
+                "idNumber": {
+                    "id": 1,
+                    "data": "0105I30001"
+                },
+                "assigningAuthority": {
+                    "id": 4,
+                    "data": "99DEF"
+                },
+                "identifierTypeCode": {
+                    "id": 5,
+                    "data": "AN"
                 }
-            ], 
-            "type": "OBX", 
-            "description": "Observation/Result"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "1", 
-                    "id": 1, 
-                    "description": "Set ID - AL1"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "^ASPIRIN", 
-                            "description": "Allergen Code/Mnemonic/Description", 
-                            "components": [
-                                {
-                                    "data": "ASPIRIN", 
-                                    "id": 2, 
-                                    "description": "Text"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "^ASPIRIN", 
-                    "id": 3, 
-                    "description": "Allergen Code/Mnemonic/Description"
+            }
+        },
+        "patientVisit": {
+            "patientClass": {
+                "id": 2,
+                "data": "I"
+            },
+            "assignedPatientLocation": {
+                "id": 3,
+                "pointOfCare": {
+                    "id": 1,
+                    "data": "W"
+                },
+                "room": {
+                    "id": 2,
+                    "data": "389"
+                },
+                "bed": {
+                    "id": 3,
+                    "data": "1"
+                },
+                "facility": {
+                    "id": 4,
+                    "data": "UABH"
+                },
+                "floor": {
+                    "id": 8,
+                    "data": "3"
                 }
-            ], 
-            "type": "AL1", 
-            "description": "Patient Allergy Information"
-        }, 
-        {
-            "fields": [
-                {
-                    "repetitions": [], 
-                    "data": "1", 
-                    "id": 1, 
-                    "description": "Set ID - DG1"
-                }, 
-                {
-                    "repetitions": [
-                        {
-                            "data": "786.50^CHEST PAIN, UNSPECIFIED^I9", 
-                            "description": "Diagnosis Code - DG1 ", 
-                            "components": [
-                                {
-                                    "data": "786.50", 
-                                    "id": 1, 
-                                    "description": "Identifier"
-                                }, 
-                                {
-                                    "data": "CHEST PAIN, UNSPECIFIED", 
-                                    "id": 2, 
-                                    "description": "Text"
-                                }, 
-                                {
-                                    "data": "I9", 
-                                    "id": 3, 
-                                    "description": "Name of Coding System"
-                                }
-                            ]
-                        }
-                    ], 
-                    "data": "786.50^CHEST PAIN, UNSPECIFIED^I9", 
-                    "id": 3, 
-                    "description": "Diagnosis Code - DG1 "
-                }, 
-                {
-                    "repetitions": [], 
-                    "data": "A", 
-                    "id": 6, 
-                    "description": "Diagnosis Type"
+            },
+            "attendingDoctor": {
+                "id": 7,
+                "personIdentifier": {
+                    "id": 1,
+                    "data": "12345"
+                },
+                "familyName": {
+                    "id": 2,
+                    "data": "MORGAN"
+                },
+                "givenName": {
+                    "id": 3,
+                    "data": "REX"
+                },
+                "secondAndFurtherGivenNamesOrInitialsThereof": {
+                    "id": 4,
+                    "data": "J"
+                },
+                "degree(e.g.,Md)": {
+                    "id": 7,
+                    "data": "MD"
+                },
+                "sourceTable": {
+                    "id": 8,
+                    "data": "0010"
+                },
+                "assigningAuthority": {
+                    "id": 9,
+                    "data": "UAMC"
+                },
+                "nameTypeCode": {
+                    "id": 10,
+                    "data": "L"
                 }
-            ], 
-            "type": "DG1", 
-            "description": "Diagnosis"
+            },
+            "consultingDoctor": {
+                "id": 9,
+                "personIdentifier": {
+                    "id": 1,
+                    "data": "67890"
+                },
+                "familyName": {
+                    "id": 2,
+                    "data": "GRAINGER"
+                },
+                "givenName": {
+                    "id": 3,
+                    "data": "LUCY"
+                },
+                "secondAndFurtherGivenNamesOrInitialsThereof": {
+                    "id": 4,
+                    "data": "X"
+                },
+                "degree(e.g.,Md)": {
+                    "id": 7,
+                    "data": "MD"
+                },
+                "sourceTable": {
+                    "id": 8,
+                    "data": "0010"
+                },
+                "assigningAuthority": {
+                    "id": 9,
+                    "data": "UAMC"
+                },
+                "nameTypeCode": {
+                    "id": 10,
+                    "data": "L"
+                }
+            },
+            "hospitalService": {
+                "id": 10,
+                "data": "MED"
+            },
+            "ambulatoryStatus": {
+                "id": 15,
+                "data": "A0"
+            },
+            "admittingDoctor": {
+                "id": 17,
+                "personIdentifier": {
+                    "id": 1,
+                    "data": "13579"
+                },
+                "familyName": {
+                    "id": 2,
+                    "data": "POTTER"
+                },
+                "givenName": {
+                    "id": 3,
+                    "data": "SHERMAN"
+                },
+                "secondAndFurtherGivenNamesOrInitialsThereof": {
+                    "id": 4,
+                    "data": "T"
+                },
+                "degree(e.g.,Md)": {
+                    "id": 7,
+                    "data": "MD"
+                },
+                "sourceTable": {
+                    "id": 8,
+                    "data": "0010"
+                },
+                "assigningAuthority": {
+                    "id": 9,
+                    "data": "UAMC"
+                },
+                "nameTypeCode": {
+                    "id": 10,
+                    "data": "L"
+                }
+            },
+            "admitDate/time": {
+                "id": 44,
+                "data": "2006-05-29T09:00:00-05:00"
+            }
+        },
+        "observation/result": {
+            "setId-Obx": {
+                "id": 1,
+                "data": "1"
+            },
+            "valueType": {
+                "id": 2,
+                "data": "NM"
+            },
+            "observationIdentifier": {
+                "id": 3,
+                "text": {
+                    "id": 2,
+                    "data": "Body Height"
+                }
+            },
+            "observationValue": {
+                "id": 5,
+                "data": "1.80"
+            },
+            "units": {
+                "id": 6,
+                "identifier": {
+                    "id": 1,
+                    "data": "m"
+                },
+                "text": {
+                    "id": 2,
+                    "data": "Meter"
+                },
+                "nameOfCodingSystem": {
+                    "id": 3,
+                    "data": "ISO+"
+                }
+            },
+            "observationResultStatus": {
+                "id": 11,
+                "data": "F"
+            }
+        },
+        "patientAllergyInformation": {
+            "setId-Al1": {
+                "id": 1,
+                "data": "1"
+            },
+            "allergenCode/mnemonic/description": {
+                "id": 3,
+                "text": {
+                    "id": 2,
+                    "data": "ASPIRIN"
+                }
+            }
+        },
+        "diagnosis": {
+            "setId-Dg1": {
+                "id": 1,
+                "data": "1"
+            },
+            "diagnosisCode-Dg1": {
+                "id": 3,
+                "identifier": {
+                    "id": 1,
+                    "data": "786.50"
+                },
+                "text": {
+                    "id": 2,
+                    "data": "CHEST PAIN, UNSPECIFIED"
+                },
+                "nameOfCodingSystem": {
+                    "id": 3,
+                    "data": "I9"
+                }
+            },
+            "diagnosisType": {
+                "id": 6,
+                "data": "A"
+            }
         }
-    ]
+    }
 }
 ```
 
