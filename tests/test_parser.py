@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 from unittest import TestCase
-from hl7tojson import parser
+from hl7v2json import parser
 from tests.samples import message1, message2
 
 
