@@ -36,11 +36,10 @@ class TestParserValidate(TestCase):
 
         msh_fields = data['segments']['messageHeader']
         assert 'fieldSeparator' in msh_fields
-        assert msh_fields['fieldSeparator']['id'] == 1
-        assert msh_fields['fieldSeparator']['data'] == '|'
+        assert msh_fields['fieldSeparator'] == '|'
 
         assert 'messageType' in msh_fields
-        assert msh_fields['messageType']['messageCode']['data'] == 'ADT'
+        assert msh_fields['messageType']['messageCode'] == 'ADT'
 
         h = parser.parse_hl7_message(message2)
         new_message = parser.update_description(0, h)

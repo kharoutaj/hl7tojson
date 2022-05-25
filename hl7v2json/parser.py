@@ -1,23 +1,21 @@
 # -*- coding: utf-8 -*-
+import importlib.resources
 from datetime import datetime, timezone, timedelta
 import json
 import textwrap
-from os.path import dirname
 
 import hl7
 
 fields = segments = messages = None
 
-FILE_PATH = dirname(__file__)
+with importlib.resources.open_text("hl7v2json.data.bamboo", "fields.json") as f:
+    fields = json.load(f)
 
-with open('{}/data/bamboo/fields.json'.format(FILE_PATH), "r") as f:
-    fields = json.loads(f.read())
+with importlib.resources.open_text("hl7v2json.data.bamboo", "messages.json") as f:
+    messages = json.load(f)
 
-with open('{}/data/bamboo/messages.json'.format(FILE_PATH), "r") as f:
-    messages = json.loads(f.read())
-
-with open('{}/data/bamboo/segments.json'.format(FILE_PATH), "r") as f:
-    segments = json.loads(f.read())
+with importlib.resources.open_text("hl7v2json.data.bamboo", "segments.json") as f:
+    segments = json.load(f)
 
 
 def parse(message):
@@ -119,7 +117,7 @@ def _get_segments_data(message):
         if desc_key in segments_data:
             for key in fields:
                 if key != 'description':
-                    segments_data[desc_key][key]['data'] += f"{fields[key]['data']}"
+                    segments_data[desc_key][key] += f"{fields[key]}"
         else:
             segments_data[desc_key] = fields
     return segments_data
@@ -136,18 +134,14 @@ def _get_fields_data(segment):
 
         description = field.desc.split()[0].lower() + ''.join(x.capitalize() for x in field.desc.split()[1:])
         data = str(field)            
-        if description in ["recordedDate/time", "admitDate/time", "date/timeOfMessage"]:
+        if description in ["recordedDate/time", "admitDate/time", "date/timeOfMessage", "eventOccurred"]:
             data = datetime.strptime(data, "%Y%m%d%H%M%S").replace(tzinfo=timezone(-timedelta(hours=5))).isoformat()
         elif description in ["date/timeOfBirth"]:
             data = datetime.strptime(data, "%Y%m%d").date().isoformat()
-        fields_data[description] = {
-            'id': idx,
-            'data': data,
-        }
+        fields_data[description] = data
         repetitions = _get_repetitions_data(field)
         if repetitions:
-            fields_data[description].update(repetitions)
-            fields_data[description].pop('data', None)
+            fields_data[description] = repetitions
     return fields_data
 
 
@@ -162,10 +156,7 @@ def _get_repetitions_data(field):
         components = _get_components_data(repetition)
     for component in components:
         desc_key = component['description'].split()[0].lower() + ''.join(x.capitalize() for x in component['description'].split()[1:])
-        repetitions_data[desc_key] = {
-            'id': component['id'],
-            'data': component['data']
-        }
+        repetitions_data[desc_key] = component['data']
     return repetitions_data
 
 
@@ -179,7 +170,6 @@ def _get_components_data(repetition):
             continue
 
         component_dict = {
-            'id': idx + 1,
             'description': component.desc,
             'data': str(component)
         }

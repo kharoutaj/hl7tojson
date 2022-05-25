@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="hl7v2json",
-    version="1.0.1",
+    version="1.0.0",
     author="John Kharouta",
     author_email="mjolnir117@gmail.com",
     description="A simple library to convert HL7v2 to JSON",
@@ -29,4 +29,5 @@ setuptools.setup(
         'hl7==0.4.5',
         'six==1.11.0'
     ],
+    python_requires=">3.6",
 )
