@@ -118,7 +118,7 @@ def _get_segments_data(message):
             if desc_key == "customCareInformation":
                 for key in fields:
                     if key != 'description':
-                        segments_data[desc_key][key] += f"{fields[key]}"
+                        segments_data[desc_key][key] += f" {fields[key]}"
             # Handle muliple other segments
             else:
                 if 'repeat' in segments_data[desc_key]:
