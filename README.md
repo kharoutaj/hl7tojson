@@ -1,20 +1,36 @@
-# HL7 to JSON
+# HL7v2 JSON
 
-A simple library to convert HL7 message version 2 to json with human readable 
-description
+A simple library to convert HL7v2 message to JSON
 
-https://pypi.org/project/hl7tojson/
+https://pypi.org/project/hl7v2json/
 
 ## Installation
 Simple
 ```
-pip install hl7tojson
+pip install hl7v2json
 ```
 
+## Supported Messages
+```
+A01 Admit patient
+A02 Transfer patient
+A03 Discharge patient
+A04 Register patient
+A06 Change outpatient to inpatient
+A07 Change inpatient to outpatient
+A08 Update patient
+A11 Cancel admit
+A12 Cancel transfer
+A13 Cancel discharge
+A21 Start of medical leave of absence (MLOA)
+A22 Return from MLOA
+A52 Cancel start of MLOA
+A53 Cancel return from MLOA
+```
 
 ## Example
 ```python
-from hl7tojson import parser
+from hl7v2json import parser
 
 message = '\r'.join([
     'MSH|^~\&|MegaReg|XYZHospC|SuperOE|XYZImgCtr|20060529090131-0500||ADT^A01^ADT_A01|01052901|P|2.5',
@@ -40,406 +56,132 @@ parser.parse(message)
     },
     "segments": {
         "messageHeader": {
-            "fieldSeparator": {
-                "id": 1,
-                "data": "|"
-            },
-            "encodingCharacters": {
-                "id": 2,
-                "data": "^~\\&"
-            },
-            "sendingApplication": {
-                "id": 3,
-                "data": "MegaReg"
-            },
-            "sendingFacility": {
-                "id": 4,
-                "data": "XYZHospC"
-            },
-            "receivingApplication": {
-                "id": 5,
-                "data": "SuperOE"
-            },
-            "receivingFacility": {
-                "id": 6,
-                "data": "XYZImgCtr"
-            },
-            "date/timeOfMessage": {
-                "id": 7,
-                "data": "2006-05-29T09:01:31-05:00"
-            },
+            "fieldSeparator": "|",
+            "encodingCharacters": "^~\\&",
+            "sendingApplication": "MegaReg",
+            "sendingFacility": "XYZHospC",
+            "receivingApplication": "SuperOE",
+            "receivingFacility": "XYZImgCtr",
+            "date/timeOfMessage": "2006-05-29T09:01:31-05:00",
             "messageType": {
-                "id": 9,
-                "messageCode": {
-                    "id": 1,
-                    "data": "ADT"
-                },
-                "triggerEvent": {
-                    "id": 2,
-                    "data": "A01"
-                },
-                "messageStructure": {
-                    "id": 3,
-                    "data": "ADT_A01"
-                }
+                "messageCode": "ADT",
+                "triggerEvent": "A01",
+                "messageStructure": "ADT_A01"
             },
-            "messageControlId": {
-                "id": 10,
-                "data": "01052901"
-            },
-            "processingId": {
-                "id": 11,
-                "data": "P"
-            },
-            "versionId": {
-                "id": 12,
-                "data": "2.5"
-            }
+            "messageControlId": "01052901",
+            "processingId": "P",
+            "versionId": "2.5"
         },
         "eventType": {
-            "recordedDate/time": {
-                "id": 2,
-                "data": "2006-05-29T09:01:00-05:00"
-            },
-            "eventOccurred": {
-                "id": 6,
-                "data": "20060529090000"
-            }
+            "recordedDate/time": "2006-05-29T09:01:00-05:00",
+            "eventOccurred": "2006-05-29T09:00:00-05:00"
         },
         "patientIdentification": {
             "patientIdentifierList": {
-                "id": 3,
-                "idNumber": {
-                    "id": 1,
-                    "data": "56782445"
-                },
-                "assigningAuthority": {
-                    "id": 4,
-                    "data": "UAReg"
-                },
-                "identifierTypeCode": {
-                    "id": 5,
-                    "data": "PI"
-                }
+                "idNumber": "56782445",
+                "assigningAuthority": "UAReg",
+                "identifierTypeCode": "PI"
             },
             "patientName": {
-                "id": 5,
-                "familyName": {
-                    "id": 1,
-                    "data": "KLEINSAMPLE"
-                },
-                "givenName": {
-                    "id": 2,
-                    "data": "BARRY"
-                },
-                "secondAndFurtherGivenNamesOrInitialsThereof": {
-                    "id": 3,
-                    "data": "Q"
-                },
-                "suffix(e.g.,JrOrIii)": {
-                    "id": 4,
-                    "data": "JR"
-                }
+                "familyName": "KLEINSAMPLE",
+                "givenName": "BARRY",
+                "secondAndFurtherGivenNamesOrInitialsThereof": "Q",
+                "suffix(e.g.,JrOrIii)": "JR"
             },
-            "date/timeOfBirth": {
-                "id": 7,
-                "data": "1962-09-10"
-            },
-            "administrativeSex": {
-                "id": 8,
-                "data": "M"
-            },
+            "date/timeOfBirth": "1962-09-10",
+            "administrativeSex": "M",
             "race": {
-                "id": 10,
-                "identifier": {
-                    "id": 1,
-                    "data": "2028-9"
-                },
-                "nameOfCodingSystem": {
-                    "id": 3,
-                    "data": "HL70005"
-                },
-                "alternateIdentifier": {
-                    "id": 4,
-                    "data": "RA99113"
-                },
-                "nameOfAlternateCodingSystem": {
-                    "id": 6,
-                    "data": "XYZ"
-                }
+                "identifier": "2028-9",
+                "nameOfCodingSystem": "HL70005",
+                "alternateIdentifier": "RA99113",
+                "nameOfAlternateCodingSystem": "XYZ"
             },
             "patientAddress": {
-                "id": 11,
-                "streetAddress": {
-                    "id": 1,
-                    "data": "NICKELL\u2019S PICKLES"
-                },
-                "otherDesignation": {
-                    "id": 2,
-                    "data": "10000 W 100TH AVE"
-                },
-                "city": {
-                    "id": 3,
-                    "data": "BIRMINGHAM"
-                },
-                "stateOrProvince": {
-                    "id": 4,
-                    "data": "AL"
-                },
-                "zipOrPostalCode": {
-                    "id": 5,
-                    "data": "35200"
-                },
-                "addressType": {
-                    "id": 7,
-                    "data": "O"
-                }
+                "streetAddress": "NICKELL\u2019S PICKLES",
+                "otherDesignation": "10000 W 100TH AVE",
+                "city": "BIRMINGHAM",
+                "stateOrProvince": "AL",
+                "zipOrPostalCode": "35200",
+                "addressType": "O"
             },
             "patientAccountNumber": {
-                "id": 18,
-                "idNumber": {
-                    "id": 1,
-                    "data": "0105I30001"
-                },
-                "assigningAuthority": {
-                    "id": 4,
-                    "data": "99DEF"
-                },
-                "identifierTypeCode": {
-                    "id": 5,
-                    "data": "AN"
-                }
+                "idNumber": "0105I30001",
+                "assigningAuthority": "99DEF",
+                "identifierTypeCode": "AN"
             }
         },
         "patientVisit": {
-            "patientClass": {
-                "id": 2,
-                "data": "I"
-            },
+            "patientClass": "I",
             "assignedPatientLocation": {
-                "id": 3,
-                "pointOfCare": {
-                    "id": 1,
-                    "data": "W"
-                },
-                "room": {
-                    "id": 2,
-                    "data": "389"
-                },
-                "bed": {
-                    "id": 3,
-                    "data": "1"
-                },
-                "facility": {
-                    "id": 4,
-                    "data": "UABH"
-                },
-                "floor": {
-                    "id": 8,
-                    "data": "3"
-                }
+                "pointOfCare": "W",
+                "room": "389",
+                "bed": "1",
+                "facility": "UABH",
+                "floor": "3"
             },
             "attendingDoctor": {
-                "id": 7,
-                "personIdentifier": {
-                    "id": 1,
-                    "data": "12345"
-                },
-                "familyName": {
-                    "id": 2,
-                    "data": "MORGAN"
-                },
-                "givenName": {
-                    "id": 3,
-                    "data": "REX"
-                },
-                "secondAndFurtherGivenNamesOrInitialsThereof": {
-                    "id": 4,
-                    "data": "J"
-                },
-                "degree(e.g.,Md)": {
-                    "id": 7,
-                    "data": "MD"
-                },
-                "sourceTable": {
-                    "id": 8,
-                    "data": "0010"
-                },
-                "assigningAuthority": {
-                    "id": 9,
-                    "data": "UAMC"
-                },
-                "nameTypeCode": {
-                    "id": 10,
-                    "data": "L"
-                }
+                "personIdentifier": "12345",
+                "familyName": "MORGAN",
+                "givenName": "REX",
+                "secondAndFurtherGivenNamesOrInitialsThereof": "J",
+                "degree(e.g.,Md)": "MD",
+                "sourceTable": "0010",
+                "assigningAuthority": "UAMC",
+                "nameTypeCode": "L"
             },
             "consultingDoctor": {
-                "id": 9,
-                "personIdentifier": {
-                    "id": 1,
-                    "data": "67890"
-                },
-                "familyName": {
-                    "id": 2,
-                    "data": "GRAINGER"
-                },
-                "givenName": {
-                    "id": 3,
-                    "data": "LUCY"
-                },
-                "secondAndFurtherGivenNamesOrInitialsThereof": {
-                    "id": 4,
-                    "data": "X"
-                },
-                "degree(e.g.,Md)": {
-                    "id": 7,
-                    "data": "MD"
-                },
-                "sourceTable": {
-                    "id": 8,
-                    "data": "0010"
-                },
-                "assigningAuthority": {
-                    "id": 9,
-                    "data": "UAMC"
-                },
-                "nameTypeCode": {
-                    "id": 10,
-                    "data": "L"
-                }
+                "personIdentifier": "67890",
+                "familyName": "GRAINGER",
+                "givenName": "LUCY",
+                "secondAndFurtherGivenNamesOrInitialsThereof": "X",
+                "degree(e.g.,Md)": "MD",
+                "sourceTable": "0010",
+                "assigningAuthority": "UAMC",
+                "nameTypeCode": "L"
             },
-            "hospitalService": {
-                "id": 10,
-                "data": "MED"
-            },
-            "ambulatoryStatus": {
-                "id": 15,
-                "data": "A0"
-            },
+            "hospitalService": "MED",
+            "ambulatoryStatus": "A0",
             "admittingDoctor": {
-                "id": 17,
-                "personIdentifier": {
-                    "id": 1,
-                    "data": "13579"
-                },
-                "familyName": {
-                    "id": 2,
-                    "data": "POTTER"
-                },
-                "givenName": {
-                    "id": 3,
-                    "data": "SHERMAN"
-                },
-                "secondAndFurtherGivenNamesOrInitialsThereof": {
-                    "id": 4,
-                    "data": "T"
-                },
-                "degree(e.g.,Md)": {
-                    "id": 7,
-                    "data": "MD"
-                },
-                "sourceTable": {
-                    "id": 8,
-                    "data": "0010"
-                },
-                "assigningAuthority": {
-                    "id": 9,
-                    "data": "UAMC"
-                },
-                "nameTypeCode": {
-                    "id": 10,
-                    "data": "L"
-                }
+                "personIdentifier": "13579",
+                "familyName": "POTTER",
+                "givenName": "SHERMAN",
+                "secondAndFurtherGivenNamesOrInitialsThereof": "T",
+                "degree(e.g.,Md)": "MD",
+                "sourceTable": "0010",
+                "assigningAuthority": "UAMC",
+                "nameTypeCode": "L"
             },
-            "admitDate/time": {
-                "id": 44,
-                "data": "2006-05-29T09:00:00-05:00"
-            }
+            "admitDate/time": "2006-05-29T09:00:00-05:00"
         },
         "observation/result": {
-            "setId-Obx": {
-                "id": 1,
-                "data": "1"
-            },
-            "valueType": {
-                "id": 2,
-                "data": "NM"
-            },
+            "setId-Obx": "1",
+            "valueType": "NM",
             "observationIdentifier": {
-                "id": 3,
-                "text": {
-                    "id": 2,
-                    "data": "Body Height"
-                }
+                "text": "Body Height"
             },
-            "observationValue": {
-                "id": 5,
-                "data": "1.80"
-            },
+            "observationValue": "1.80",
             "units": {
-                "id": 6,
-                "identifier": {
-                    "id": 1,
-                    "data": "m"
-                },
-                "text": {
-                    "id": 2,
-                    "data": "Meter"
-                },
-                "nameOfCodingSystem": {
-                    "id": 3,
-                    "data": "ISO+"
-                }
+                "identifier": "m",
+                "text": "Meter",
+                "nameOfCodingSystem": "ISO+"
             },
-            "observationResultStatus": {
-                "id": 11,
-                "data": "F"
-            }
+            "observationResultStatus": "F"
         },
         "patientAllergyInformation": {
-            "setId-Al1": {
-                "id": 1,
-                "data": "1"
-            },
+            "setId-Al1": "1",
             "allergenCode/mnemonic/description": {
-                "id": 3,
-                "text": {
-                    "id": 2,
-                    "data": "ASPIRIN"
-                }
+                "text": "ASPIRIN"
             }
         },
         "diagnosis": {
-            "setId-Dg1": {
-                "id": 1,
-                "data": "1"
-            },
+            "setId-Dg1": "1",
             "diagnosisCode-Dg1": {
-                "id": 3,
-                "identifier": {
-                    "id": 1,
-                    "data": "786.50"
-                },
-                "text": {
-                    "id": 2,
-                    "data": "CHEST PAIN, UNSPECIFIED"
-                },
-                "nameOfCodingSystem": {
-                    "id": 3,
-                    "data": "I9"
-                }
+                "identifier": "786.50",
+                "text": "CHEST PAIN, UNSPECIFIED",
+                "nameOfCodingSystem": "I9"
             },
-            "diagnosisType": {
-                "id": 6,
-                "data": "A"
-            }
+            "diagnosisType": "A"
         }
     }
 }
 ```
-
-## TODO
-- Support all versions of HL7 version 2
-- Support data description in multiple languages
-- Add CI

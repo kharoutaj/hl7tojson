@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-name = 'hl7tojson'
+name = 'hl7v2json'
