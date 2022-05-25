@@ -113,11 +113,18 @@ def _get_segments_data(message):
     for segment in message:
         fields = _get_fields_data(segment)
         desc_key = segment.desc.split()[0].lower() + ''.join(x.capitalize() for x in segment.desc.split()[1:])
-        # Combine multiple ZPP segments
         if desc_key in segments_data:
-            for key in fields:
-                if key != 'description':
-                    segments_data[desc_key][key] += f"{fields[key]}"
+            # Handle multiple ZPP segments
+            if desc_key == "customCareInformation":
+                for key in fields:
+                    if key != 'description':
+                        segments_data[desc_key][key] += f"{fields[key]}"
+            # Handle muliple other segments
+            else:
+                if 'repeat' in segments_data[desc_key]:
+                    segments_data[desc_key]['repeat'].append(fields)
+                else:
+                    segments_data[desc_key]['repeat'] = [fields]
         else:
             segments_data[desc_key] = fields
     return segments_data
