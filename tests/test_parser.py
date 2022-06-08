@@ -2,7 +2,7 @@
 import json
 from unittest import TestCase
 from hl7v2json import parser
-from tests.samples import message1, message2
+from tests.samples import message1, message2, message3
 
 
 class TestParserValidate(TestCase):
@@ -49,4 +49,10 @@ class TestParserValidate(TestCase):
 
     def test_parser(self):
         data = parser.parse(message1)
+        assert data is not None
+
+        data = parser.parse(message2)
+        assert data is not None
+
+        data = parser.parse(message3)
         assert data is not None

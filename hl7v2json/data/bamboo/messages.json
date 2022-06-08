@@ -1648,6 +1648,38 @@
               "max": 1
             },
             {
+              "name": "INSURANCE",
+              "desc": "Insurance",
+              "min": 0,
+              "max": 0,
+              "children": [
+                {
+                  "name": "IN1",
+                  "desc": "Insurance",
+                  "min": 1,
+                  "max": 1
+                },
+                {
+                  "name": "IN2",
+                  "desc": "Insurance Additional Info.",
+                  "min": 0,
+                  "max": 1
+                },
+                {
+                  "name": "IN3",
+                  "desc": "Insurance Additional Info - Cert.",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "name": "ROL",
+                  "desc": "Role",
+                  "min": 0,
+                  "max": 0
+                }
+              ]
+            },
+            {
               "name": "PID",
               "desc": "Patient Identification",
               "min": 1,

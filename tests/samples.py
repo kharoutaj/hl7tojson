@@ -29,3 +29,14 @@ message2 = '\r'.join([
     'IN1|001|A357|1234|BCMD|||||132987',
     'IN2|ID1551001|SSN12345678',
 ])
+
+message3 = '\r'.join([
+    "MSH|^~\\&|PATIENTPING_ADT|23472^New Hanover RMC Orthopedic Hospital^HOS|RECEIVING_APP|254468^Pearl Health|20220529230000||ADT^A11|328bcea0-dfc4-11ec-97b3-cfe19de0a160|T|2.7",
+    "EVN|A11|20220529171100||CANCEL_ENCOUNTER",
+    "PID|1|p-847559c1-c037-11ec-ab6d-b5fdaa507fbb^^^PP^PP|PEARL^^^default^default||JONES^WILLIAM^||19341006|M|||^^^NC^28405||9107913492|||||18301049|",
+    "PD1||||999999999^Klein^Isidore^^^^",
+    "PV1|1|E|||||||||||||||||18301049|||||||||||||||||||||||||||||||136010654",
+    'IN1|001|A357|1234|BCMD|||||132987',
+    'IN1|002|A357|1234|BCMD|||||132987',
+    "ZMD|30cf2ac0-dfc4-11ec-97d8-191cc28dd728",
+])
